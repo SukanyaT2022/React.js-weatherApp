@@ -2,6 +2,7 @@ import sun from './asset/sunBGRemove.png';
 import cloud from './asset/couldBG.png';
 import rain from './asset/rain.png';
 import thunder from './asset/thunderBG.png';
+import snow from './asset/snowBG.png';
 import './Weather.css';
 import { useEffect, useState } from 'react';
 
@@ -50,21 +51,26 @@ const Weather = () => {
     {data && 
       <div className="bigBox">
         <div className="imageBox">
-          <img src={sun} alt="sun" />
+          <img 
+              src={data.weather[0].main === 'Clouds'?
+              cloud: data.weather[0].main === "Rain"||"Mist"? rain:
+              data.weather[0].main === "Clear"?sun: snow } 
+              alt="sun" 
+              />
         </div>
         <div className="weatherBox">
           <h2>Today</h2>
           <h1>{data && data.name}</h1>
           <p>
-            Temperature: {data && data.main.temp}
+            Temperature: {data && Math.trunc(data.main.temp-230)}
             <sup>o</sup>F
           </p>
           <p>
-            Maximum: {data && data.main.temp_max}
+            Maximum: {data && Math.trunc(data.main.temp_max-230)}
             <sup>o</sup>F
           </p>
           <p>
-            Minimum: {data && data.main.temp_min}
+            Minimum: {data && Math.trunc(data.main.temp_min-230)}
             <sup>o</sup>F
           </p>
           <p>Weather: {data && data.weather[0].description}</p>
@@ -90,3 +96,6 @@ const Weather = () => {
 };
 
 export default Weather;
+
+
+// Conditional rendiring in React
