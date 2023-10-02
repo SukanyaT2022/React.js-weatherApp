@@ -118,3 +118,8 @@ sup {
   margin: 0px 0px 10px 0px;
 }
 
+.error{
+  margin-top:2rem;
+  text-align:center;
+  color:white;
+}

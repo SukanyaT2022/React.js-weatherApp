@@ -1,5 +1,5 @@
 import sun from './asset/sunBGRemove.png';
-import cloud from './asset/couldBG.png';
+import cloud from './asset/couldyBG.png';
 import rain from './asset/rain.png';
 import thunder from './asset/thunderBG.png';
 import snow from './asset/snowBG.png';
@@ -10,15 +10,15 @@ const Weather = () => {
   //below state use to store data in api
   const [data, setData] = useState();
   const [search, setSearch] = useState();
-  const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,rain&temperature_unit=fahrenheit`;
-  useEffect(() => {
+  // const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,rain&temperature_unit=fahrenheit`;
+  // useEffect(() => {
     // fetch(apiUrl)
     //   .then((response) => response.json())
     //   .then((data) => {
     //     setData(data.hourly.temperature_2m.slice(0,7));
     //     console.log(data)
     //   });
-  }, []);
+  // }, []);
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -29,8 +29,8 @@ const Weather = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        setData(data);
-        console.log(data);
+        // setData(data);
+        console.log(data );
       });
   };
   return (
@@ -48,35 +48,37 @@ const Weather = () => {
       </div>
       {/* <FontAwesomeIcon icon={faWrench} pulse /> */}
 
-    {data && 
-      <div className="bigBox">
-        <div className="imageBox">
+      {data.main ? (
+        <div className="bigBox">
+          <div className="imageBox">
           <img 
               src={data.weather[0].main === 'Clouds'?
-              cloud: data.weather[0].main === "Rain"||"Mist"? rain:
+              cloud: data.weather[0].main === "Rain"? rain:
               data.weather[0].main === "Clear"?sun: snow } 
               alt="sun" 
               />
         </div>
         <div className="weatherBox">
           <h2>Today</h2>
-          <h1>{data && data.name}</h1>
+          <h1>{data.name}</h1>
           <p>
-            Temperature: {data && Math.trunc(data.main.temp-230)}
+            Temperature: {Math.trunc(data.main.temp-230)}
             <sup>o</sup>F
           </p>
           <p>
-            Maximum: {data && Math.trunc(data.main.temp_max-230)}
+            Maximum: {Math.trunc(data.main.temp_max-230)}
             <sup>o</sup>F
           </p>
           <p>
-            Minimum: {data && Math.trunc(data.main.temp_min-230)}
+            Minimum: {Math.trunc(data.main.temp_min-230)}
             <sup>o</sup>F
           </p>
-          <p>Weather: {data && data.weather[0].description}</p>
+          <p>Weather: {data.weather[0].description}</p>
         </div>
-      </div>
-      }
+        </div>
+      ) : (
+        <h1 className="error">{data.message}</h1>
+      )}
       {/* small overlapbox */}
       {/* <div className="mainBoxOverlapBox">
         {data &&
@@ -96,6 +98,5 @@ const Weather = () => {
 };
 
 export default Weather;
-
 
 // Conditional rendiring in React
