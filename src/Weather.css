@@ -7,12 +7,15 @@ body,
 html {
   overflow-x: hidden;
 }
-
+.search_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .inputBox {
   width: 40%;
   padding: 10px;
   text-align: center;
-  margin: 0px auto 30px auto;
   display: block;
   border-radius: 15px;
   border: none;
@@ -25,20 +28,40 @@ html {
   min-height: 100vh;
   max-height: auto;
   padding-top: 60px;
+
+}
+.inputBox::placeholder{
+  font-size: 14px;
+  color: black;
+}
+.inputBox:focus{
+  border: none;
+  outline: none;
+}
+
+.search_btn{
+  font-size: 14px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: black;
+  margin-left: 20px;
+  border: none;
 }
 sup {
   font-size: 10px;
 }
 .bigBox {
-  width: 70%;
-  height: 500px;
+  width: 60%;
+  height: 400px;
   background-color: rgba(255, 255, 255, 0.463);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
+  margin: 40px auto 20px auto;
   border-radius: 15px;
+  
 }
 .imageBox {
   width: 50%;
@@ -77,21 +100,21 @@ sup {
 .smallBox img {
   width: 50%;
 }
-.search_btn {
-  font-size: 16px;
-  background-color: rgba(37, 35, 35, 0.924);
-  border-radius: 4px;
-  padding: 10px 20px;
-  color: white;
-}
+
 
 .search_btn:hover {
-  background-color: black;
+  background-color: lightblue;
   cursor: pointer;
 }
 
-.search_wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.weatherBox p{
+  margin: 10px 0px;
 }
+.weatherBox h1{
+  font-size: 50px;
+}
+.weatherBox h2{
+  font-size: 30px;
+  margin: 0px 0px 10px 0px;
+}
+
