@@ -29,7 +29,7 @@ const Weather = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        // setData(data);
+        setData(data);
         console.log(data );
       });
   };
@@ -48,7 +48,7 @@ const Weather = () => {
       </div>
       {/* <FontAwesomeIcon icon={faWrench} pulse /> */}
 
-      {data.main ? (
+      {data  ? (
         <div className="bigBox">
           <div className="imageBox">
           <img 
@@ -77,7 +77,7 @@ const Weather = () => {
         </div>
         </div>
       ) : (
-        <h1 className="error">{data.message}</h1>
+        <h1 className="error"></h1>
       )}
       {/* small overlapbox */}
       {/* <div className="mainBoxOverlapBox">
