@@ -28,18 +28,17 @@ html {
   min-height: 100vh;
   max-height: auto;
   padding-top: 60px;
-
 }
-.inputBox::placeholder{
+.inputBox::placeholder {
   font-size: 14px;
   color: black;
 }
-.inputBox:focus{
+.inputBox:focus {
   border: none;
   outline: none;
 }
 
-.search_btn{
+.search_btn {
   font-size: 14px;
   background-color: white;
   border-radius: 20px;
@@ -61,7 +60,6 @@ sup {
   justify-content: center;
   margin: 40px auto 20px auto;
   border-radius: 15px;
-  
 }
 .imageBox {
   width: 50%;
@@ -101,25 +99,81 @@ sup {
   width: 50%;
 }
 
-
 .search_btn:hover {
   background-color: lightblue;
   cursor: pointer;
 }
 
-.weatherBox p{
+.weatherBox p {
   margin: 10px 0px;
 }
-.weatherBox h1{
+.weatherBox h1 {
   font-size: 50px;
 }
-.weatherBox h2{
+.weatherBox h2 {
   font-size: 30px;
   margin: 0px 0px 10px 0px;
 }
-
-.error{
-  margin-top:2rem;
-  text-align:center;
-  color:white;
+.error {
+  margin-top: 2rem;
+  text-align: center;
+  color: white;
+}
+/* ipad */
+@media screen and (max-width: 990px) {
+  .bigBox {
+    width: 80%;
+    height: 400px;
+  }
+  .weatherBox p {
+    font-size: 20px;
+  }
+  .imageBox img {
+    width: 90%;
+  }
+  .inputBox {
+    width: 40%;
+    padding: 14px 0px;
+    font-size: 20px;
+    border-radius: 30px;
+  }
+  .search_btn {
+    font-size: 20px;
+    width: 30%;
+    padding: 15px 0px;
+    border-radius: 30px;
+  }
+  .inputBox::placeholder {
+    font-size: 20px;
+  }
+}
+/* iphone */
+@media screen and (max-width: 600px) {
+  .bigBox {
+    width: 90%;
+    height: 600px;
+    flex-direction: column;
+  }
+  .imageBox {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+  .weatherBox {
+    width: 80%;
+    padding-left: 50px;
+  }
+  .inputBox::placeholder {
+    font-size: 18px;
+  }
+  .inputBox {
+    width: 60%;
+    border-radius: 30px;
+  }
+  .search_btn {
+    font-size: 18px;
+    width: 30%;
+    padding: 15px 0px;
+    border-radius: 30px;
+  }
 }
